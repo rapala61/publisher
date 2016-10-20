@@ -10,6 +10,9 @@
   "keywords": [
     "soDomething"
   ],
+  "engines": {
+    "node": "6.9.0"
+  },
   "author": "Rafa",
   "license": "ISC",
   "dependencies": {
