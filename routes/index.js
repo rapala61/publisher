@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
     password_confirm: req.body.password_confirm
   };
 
-  const publisher = new Producer();
+  const producer = new Producer();
   const exchange = 'form_submission';
   const key = 'sign_up';
   const messageObject = {
@@ -31,7 +31,8 @@ router.post('/', (req, res) => {
     }
   };
 
-  publisher.sendMessage(messageObject, (err, ok) => {
+  producer.sendMessage(messageObject, (err, ok) => {
+    console.log(err, ok);
     if (err !== null) {
       res.status(500);
     } else {

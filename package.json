@@ -8,7 +8,7 @@
     "start": "node app.js"
   },
   "keywords": [
-    "soDomething"
+    "doSomething"
   ],
   "engines": {
     "node": "6.9.0"
