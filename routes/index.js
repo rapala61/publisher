@@ -4,10 +4,16 @@ const router = express.Router();
 
 const Producer = require('../lib/producer.js');
 
+/**
+ * Renders our form
+ */
 router.get('/', (req, res) => {
   res.render('index');
 });
 
+/**
+ * This route receives the form submission request
+ */
 router.post('/', (req, res) => {
   const payload = {
     name: req.body.name,
@@ -31,12 +37,15 @@ router.post('/', (req, res) => {
     }
   };
 
+  /**
+   * Use the producer instance to send the message to the bus.
+   * The callback will redirect user to the form on success
+   */
   producer.sendMessage(messageObject, (err, ok) => {
-    console.log(err, ok);
     if (err !== null) {
       res.status(500);
     } else {
-      res.json({ status: 200 });
+      res.redirect('/?submission=ok');
     }
   });
 });
